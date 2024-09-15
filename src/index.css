@@ -5,3 +5,28 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+body{
+  background-image: url("/bg2.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+}
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.504);
+  backdrop-filter: blur(19px) saturate(180%);
+  border-radius: 5px;
+  display: flex;
+}
+
+.loading{
+  padding: 50px;
+  font-size: 36px;
+  border-radius: 10px;
+  background-color: black;
+}

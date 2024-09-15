@@ -1,0 +1,92 @@
+::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+background: transparent;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+background-color: rgba(91, 107, 150, 0.551) ;    /* color of the scroll thumb */
+border-radius: 5px;       /* roundness of the scroll thumb */
+}
+
+
+.chatList{
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+    
+    .search{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+
+        .searchBar{
+            flex: 1;
+            background-color: rgba(91, 107, 150, 0.551);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-radius: 10px;
+            padding: 10px;
+
+            input{
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: rgb(255, 255, 255);
+                flex: 1;
+            }
+
+            img{
+                width: 17px;
+                height: 17px;
+                cursor: pointer; 
+            }
+        }
+
+        .add{
+            width: 30px;
+            height: 30px;
+            background-color: rgba(91, 107, 150, 0.551);
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+    .item{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        cursor: pointer;
+        /*border-bottom: 1px solid gray;*/
+
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .texts{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            span{
+                font-weight: 500;
+            }
+
+            p{
+                font-size: 14px;
+                font-weight: 300;
+            }
+        
+        }
+    }
+    
+}
