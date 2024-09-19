@@ -3,6 +3,7 @@ import Chat from "./components/chat/Chat";
 import Detail from "./components/detail/Detail";
 import List from "./components/list/List"; 
 import Login from "./components/login/Login";
+import Register from "./components/login/Register";
 import Notification from "./components/notification/Notification";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase";
@@ -13,7 +14,6 @@ const App = () => {
 
   const {currentUser, isLoading, fetchUserInfo} = useUserStore()
   const {chatId} = useChatStore()
-
 
   useEffect(()=> {
     const unSub = onAuthStateChanged(auth, (user)=>{
@@ -35,11 +35,14 @@ const App = () => {
             {chatId && <Chat/>}
             {chatId && <Detail/>}
           </>
-        ) : (<Login/>)
+        ) : (<Register/>)
       }
       <Notification/>
     </div>
   )
-}
+
+  
+};
+
 
 export default App

@@ -1,21 +1,21 @@
+import "./register.css"
 import { useState } from "react";
-import "./login.css"
 import { toast } from "react-toastify";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import upload from "../../lib/upload";
 
-const Login = () => {
+const Register = () => {
 
-   /*  const[avatar, setAvatar] = useState({
+    const[avatar, setAvatar] = useState({
         file:null,
         url:""
-    }); */
+    });
 
     const [loading, setLoading] = useState(false)
 
-    /* const handleAvatar = (e) =>{
+    const handleAvatar = (e) =>{
         if(e.target.files[0]){
             setAvatar({
                 file:e.target.files[0],
@@ -58,9 +58,9 @@ const Login = () => {
         } finally{
             setLoading(false);
         } 
-    }; */
+    };
 
-    const handleLogin = async (e) =>{
+    /* const handleLogin = async (e) =>{
         e.preventDefault()
         setLoading(true);
 
@@ -81,19 +81,24 @@ const Login = () => {
         }
 
     }
-
+ */
     return ( 
         <div className="login">
             <div className="item">
-                <h2>Bem vindo de volta...</h2>
-                <form onSubmit={handleLogin}>
+                <h2>Registar</h2>
+                <form onSubmit={handleRegister}>
+                    <label htmlFor="file">
+                        <img src={avatar.url || "./avatar.png"} alt="" />
+                        Adicionar Foto</label>
+                    <input type="file" id = "file" style={{display:"none"}} onChange={handleAvatar}/>
+                    <input type="text" placeholder="Nome do Usuario" name = "username"/>
                     <input type="text" placeholder="Email" name = "email"/>
                     <input type="password" placeholder="Password" name = "password"/>
-                    <button disabled={loading}>{loading ? "Loading" : "Log In"}</button>
+                    <button disabled={loading}>{loading ? "Loading" : "Sign Up"}</button>
                 </form> 
             </div>
         </div>
     );
 }
  
-export default Login;   
+export default Register;   
