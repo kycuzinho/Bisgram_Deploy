@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./login.css"
 import { toast } from "react-toastify";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
@@ -6,59 +6,9 @@ import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import upload from "../../lib/upload";
 
-const Login = () => {
-
-   /*  const[avatar, setAvatar] = useState({
-        file:null,
-        url:""
-    }); */
+const Login = ({onToggle}) => {
 
     const [loading, setLoading] = useState(false)
-
-    /* const handleAvatar = (e) =>{
-        if(e.target.files[0]){
-            setAvatar({
-                file:e.target.files[0],
-                url: URL.createObjectURL(e.target.files[0])
-            })
-        }
-    };
-    
-    const handleRegister = async e =>{
-        e.preventDefault()
-        setLoading(true)
-        const formData = new FormData(e.target)
-
-        const {username, email, password} = Object.fromEntries(formData);
-
-        try{
-
-            const res = await createUserWithEmailAndPassword(auth, email, password);
-
-            const imgUrl = await upload(avatar.file);
-
-            await setDoc(doc(db, "users", res.user.uid), {
-                username,
-                email,
-                avatar: imgUrl,
-                id: res.user.uid,
-                blocked:[]
-            });
-            
-            await setDoc(doc(db, "userchats", res.user.uid), {
-                chats:[],
-            });
-
-
-            toast.success("Account created")
-
-        }catch(err){
-            console.log(err)
-            toast.error(err.message)
-        } finally{
-            setLoading(false);
-        } 
-    }; */
 
     const handleLogin = async (e) =>{
         e.preventDefault()
@@ -91,6 +41,12 @@ const Login = () => {
                     <input type="password" placeholder="Password" name = "password"/>
                     <button disabled={loading}>{loading ? "Loading" : "Log In"}</button>
                 </form> 
+
+                <div className="toogle-container">
+                    <span className="toggle-text">
+                        Não tens uma conta? <span className="clickable-text"  onClick={onToggle}>Registar</span>
+                    </span>
+                </div>
             </div>
         </div>
     );

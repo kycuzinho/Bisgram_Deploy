@@ -6,7 +6,7 @@ import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import upload from "../../lib/upload";
 
-const Register = () => {
+const Register = ({ onToggle }) => {
 
     const[avatar, setAvatar] = useState({
         file:null,
@@ -49,7 +49,6 @@ const Register = () => {
                 chats:[],
             });
 
-
             toast.success("Account created")
 
         }catch(err){
@@ -60,30 +59,8 @@ const Register = () => {
         } 
     };
 
-    /* const handleLogin = async (e) =>{
-        e.preventDefault()
-        setLoading(true);
-
-        const formData = new FormData(e.target)
-
-        const {email, password} = Object.fromEntries(formData);
-
-        try{
-        
-            await signInWithEmailAndPassword(auth, email, password);
-
-        }catch(err){
-            console.log(err)
-            toast.error(err.message)
-        }
-        finally{
-            setLoading(false)
-        }
-
-    }
- */
     return ( 
-        <div className="login">
+        <div className="register">
             <div className="item">
                 <h2>Registar</h2>
                 <form onSubmit={handleRegister}>
@@ -96,6 +73,12 @@ const Register = () => {
                     <input type="password" placeholder="Password" name = "password"/>
                     <button disabled={loading}>{loading ? "Loading" : "Sign Up"}</button>
                 </form> 
+                
+                <div className="toggle-container">
+                    <span className="toggle-text">
+                        Já tens uma conta? <span className="clickable-text"  onClick={onToggle}>Logar</span>
+                    </span>
+                </div>
             </div>
         </div>
     );
