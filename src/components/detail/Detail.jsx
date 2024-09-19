@@ -96,7 +96,7 @@ const Detail = () => {
                     isCurrentUserBlocked ? "Estás bloqueado" : isReceiverBlocked ? "Desbloquear" : "Bloquear"
                 }
                 </button>
-                <button className="logout" onClick={()=> auth.signOut()}>Logout</button>
+                {/* <button className="logout" onClick={()=> auth.signOut()}>Logout</button> */}
             </div>
         </div> 
 

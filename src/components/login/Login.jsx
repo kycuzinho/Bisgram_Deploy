@@ -27,7 +27,7 @@ const Login = ({onToggle}) => {
             toast.error(err.message)
         }
         finally{
-            setLoading(false)
+            setLoading(false);
         }
 
     }

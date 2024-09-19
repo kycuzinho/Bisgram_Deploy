@@ -26,7 +26,8 @@ const Register = ({ onToggle }) => {
     
     const handleRegister = async e =>{
         e.preventDefault()
-        setLoading(true)
+        setLoading(true);
+        
         const formData = new FormData(e.target)
 
         const {username, email, password} = Object.fromEntries(formData);
