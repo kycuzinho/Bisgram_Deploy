@@ -1,6 +1,5 @@
 import "./userInfo.css"
 import { useUserStore } from "../../../lib/userStore";
-import { auth } from "../../../lib/firebase";
 import { useState } from "react";
 import MorePage from "./morePage/MorePage";
 
@@ -23,7 +22,6 @@ const Userinfo = () => {
                 <img src="./video.png" alt="" />
                 <img src="./edit.png" alt="" />
             </div>
-            <button className="logout" onClick={()=> auth.signOut()}>Logout</button>
 
             {moreMode &&  <MorePage/>}
         </div> 
