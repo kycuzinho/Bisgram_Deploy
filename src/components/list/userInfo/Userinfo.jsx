@@ -16,11 +16,11 @@ const Userinfo = () => {
                 <h2>{currentUser.username}</h2>
             </div>
             <div className="icons">
+                <img src="./edit.png" alt="" />
+                
                 <img src={moreMode ? "./more_a.png" : "./more.png"}  alt="" className="more"
                 onClick={() => setMoreMode(prev=>!prev)}/>
-
-                <img src="./video.png" alt="" />
-                <img src="./edit.png" alt="" />
+                
             </div>
 
             {moreMode &&  <MorePage/>}
