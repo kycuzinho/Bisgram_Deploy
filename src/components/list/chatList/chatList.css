@@ -63,7 +63,13 @@ border-radius: 5px;       /* roundness of the scroll thumb */
         gap: 20px;
         padding: 20px;
         cursor: pointer;
+        border-radius: 10px;
         /*border-bottom: 1px solid gray;*/
+
+        &:hover{
+            transform: scale(1.01);
+        }
+
 
         img{
             width: 50px;
