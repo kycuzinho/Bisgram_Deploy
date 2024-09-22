@@ -132,9 +132,12 @@ const Chat = () => {
                         <div className="texts">
                             {message.img && <img src={message.img} alt="message-img" />}
                             <p>{message.text}</p>
-                            {message.senderId === currentUser?.id && (
-                                <button onClick={() => handleDelete(message)}>Delete</button>
-                            )}
+                            {<div className="trash">
+                                {message.senderId === currentUser?.id && (
+                                    <img onClick={() => handleDelete(message)} src="trash.png" alt=""/>
+                                )}
+                            </div>}
+                            
                         </div>
                     </div>
                 ))}
@@ -150,7 +153,7 @@ const Chat = () => {
             <div className="bottom">
                 <div className="icons">
                     <label htmlFor="file">
-                        <img src="./img.png" alt="" />
+                        <img src="./img.png" alt="" className="icons file"/>
                     </label>
                     <input type="file" id="file" style={{ display: "none" }} onChange={handleImg} />
                     <img src="./camera.png" alt="" />
